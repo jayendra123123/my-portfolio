@@ -1,5 +1,6 @@
 import React from 'react';
 import { Typewriter } from 'react-simple-typewriter';
+import { motion } from 'framer-motion';
 
 const projects = [
   {
@@ -32,29 +33,40 @@ export default function Project() {
   return (
     <div className="bg-black text-white py-10 px-4 sm:px-8 md:px-16">
       <div className="max-w-7xl mx-auto">
+        
         {/* Header Section */}
-        {/* Header Section */}
-          <div className="text-4xl font-bold text-left">
-                    <p className="text-[15px] text-[grey]">________ PROJECTS</p>
-                        <h1 className="text-[30px] mb-2">PROJECTS</h1>
-                        <p className="text-[40px] text-[#fc8019] leading-tight mt-[-10px]">
-                          <Typewriter
-                          words={['1 River CleanUp', '2 Movie Review', '3 Calculator', '4 Notepad']}
-                          loop={true}
-                          cursor
-                          cursorStyle="|"
-                          typeSpeed={100}
-                          deleteSpeed={60}
-                          delaySpeed={1500}
-                     />
-                </p>
-            </div><br/>
+        <motion.div
+          initial={{ opacity: 0, y: -50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="text-4xl font-bold text-left"
+        >
+          <p className="text-[15px] text-[grey]">________ PROJECTS</p>
+          <h1 className="text-[30px] mb-2">PROJECTS</h1>
+          <p className="text-[40px] text-[#fc8019] leading-tight mt-[-10px]">
+            <Typewriter
+              words={['1 River CleanUp', '2 Movie Review', '3 Calculator', '4 Notepad']}
+              loop={true}
+              cursor
+              cursorStyle="|"
+              typeSpeed={100}
+              deleteSpeed={60}
+              delaySpeed={1500}
+            />
+          </p>
+        </motion.div>
+
+        <br />
 
         {/* Projects Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {projects.map((proj, index) => (
-            <div
+            <motion.div
               key={index}
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5, delay: index * 0.2 }}
+              viewport={{ once: true }}
               className="bg-[#1a1a1a] text-white p-5 rounded-xl shadow-md hover:scale-105 transition-transform duration-300"
             >
               <h3 className="text-lg sm:text-xl md:text-2xl text-[#fc8019] font-semibold mb-2">{proj.title}</h3>
@@ -77,7 +89,7 @@ export default function Project() {
                   Code
                 </a>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>
