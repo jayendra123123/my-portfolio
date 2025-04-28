@@ -2,7 +2,7 @@ const express = require('express');
 const cors = require('cors');
 const nodemailer = require('nodemailer');
 const app = express();
-const PORT = 3000; // Better to use 5000
+const PORT = 3000;
 
 app.use(cors());
 app.use(express.json());
@@ -14,15 +14,15 @@ app.post('/api/contact', async (req, res) => {
     const transporter = nodemailer.createTransport({
       service: 'gmail',
       auth: {
-        user: 'jayendramalla26@gmail.com', // your email
-        pass: 'bibcyjgucjyeeaet',           // your app password
+        user: 'jayendramalla26@gmail.com', 
+        pass: 'bibcyjgucjyeeaet',           
       },
     });
 
     await transporter.sendMail({
-      from: 'jayendramalla26@gmail.com', // YOUR OWN verified email
-      replyTo: email,                    // visitor's email
-      to: 'jayendramalla26@gmail.com',   // your email again
+      from: 'jayendramalla26@gmail.com', 
+      replyTo: email,                    
+      to: 'jayendramalla26@gmail.com',  
       subject: `Portfolio Contact Form: ${name}`,
       text: message,
     });
