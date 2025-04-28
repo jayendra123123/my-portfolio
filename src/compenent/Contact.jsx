@@ -12,7 +12,7 @@ export default function Contact() {
     e.preventDefault();
     setStatus('Sending...');
     try {
-      await axios.post('http://localhost:3000/api/contact', formData);
+      await axios.post('http://localhost:5000/api/contact', formData);
       setStatus('Message Sent Successfully!');
       setFormData({ name: '', email: '', message: '' });
     } catch (error) {
