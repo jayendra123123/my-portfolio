@@ -13,7 +13,7 @@ export default function Contact() {
     e.preventDefault();
     setStatus('Sending...');
     try {
-      await axios.post('https://my-portfolio-ub3i.onrender.com/api/contact', formData);
+      await axios.post('http://localhost:3019/api/contact', formData);
       setStatus('Message Sent Successfully!');
       setFormData({ name: '', email: '', message: '' });
     } catch (error) {

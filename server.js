@@ -3,11 +3,15 @@ const cors = require('cors');
 const nodemailer = require('nodemailer');
 const dotenv = require('dotenv');
 const app = express();
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 3019;
 
 dotenv.config();
 app.use(cors());
 app.use(express.json());
+
+app.get('/', (req, res) => {
+  res.send('Portfolio backend is running');
+});
 
 app.post('/api/contact', async (req, res) => {
   const { name, email, message } = req.body;
@@ -16,8 +20,8 @@ app.post('/api/contact', async (req, res) => {
     const transporter = nodemailer.createTransport({
       service: 'gmail',
       auth: {
-        user: process.env.EMAIL_USER,
-        pass: process.env.EMAIL_PASS,
+        user: process.env.EMAIL_USER?.trim(),
+        pass: process.env.EMAIL_PASS?.trim(),
       },
     });
 
