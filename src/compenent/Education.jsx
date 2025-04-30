@@ -19,15 +19,19 @@ const education = [
     field: 'General',
     institution: 'Bhashyam High School',
     year: '2018 - 2020',
-  }
+  },
+];
+
+const skills = [
+  'JavaScript', 'React', 'Node.js', 'MongoDB',
+  'HTML', 'CSS', 'Tailwind CSS',
+  'Git & GitHub', 'C++', 'Express.js', 'Python'
 ];
 
 export default function Education() {
   return (
     <div className="bg-black text-white py-10 px-4 sm:px-8 md:px-16">
       <div className="max-w-4xl mx-auto">
-        
-        {/* Heading */}
         <motion.div
           initial={{ opacity: 0, y: -50 }}
           animate={{ opacity: 1, y: 0 }}
@@ -40,9 +44,7 @@ export default function Education() {
             Journey of learning — because Learning never stops...
           </p>
         </motion.div>
-
-        {/* Timeline */}
-        <div className="relative border-l-2 border-[#fc8019] ml-4">
+        <div className="relative border-l-2 border-[#fc8019] ml-4 mb-16">
           {education.map((edu, index) => (
             <motion.div
               key={index}
@@ -60,6 +62,29 @@ export default function Education() {
             </motion.div>
           ))}
         </div>
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+        >
+          <p className="text-xs sm:text-sm text-gray-500 mb-1">________ SKILLS</p>
+          <h2 className="text-2xl sm:text-3xl font-bold mb-4">TECHNICAL SKILLS</h2>
+          <div className="flex flex-wrap gap-3">
+            {skills.map((skill, index) => (
+              <motion.span
+                key={index}
+                initial={{ opacity: 0, scale: 0.8 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                transition={{ delay: index * 0.05 }}
+                className="bg-[#fc8019] text-black px-4 py-2 rounded-full text-sm font-medium"
+              >
+                {skill}
+              </motion.span>
+            ))}
+          </div>
+        </motion.div>
+
       </div>
     </div>
   );
