@@ -22,69 +22,77 @@ export default function Contact() {
   };
 
   return (
-    <div className="min-h-screen bg-black text-white p-6 flex flex-col items-center">
-      <div className="flex flex-col justify-center items-start text-left mb-12 w-full max-w-4xl">
-        <p className="text-xs sm:text-sm text-gray-500 mb-1">________ CONTACT</p>
-        <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-2">CONTACT ME</h1>
-        <p className="text-lg sm:text-xl md:text-2xl text-[#fc8019] mb-6">
-          Let's connect — I'm always excited to hear from you!
-        </p>
-        <div className="text-base sm:text-lg text-gray-400 space-y-2">
-          <p><span className="font-semibold text-white">Name:</span> Jayendra</p>
-          <p><span className="font-semibold text-white">Email:</span> jayendramalla26@gmail.com</p>
-          <p><span className="font-semibold text-white">Phone No:</span> 7842814826</p>
-        </div>
-      </div>
-
-      <form
-        onSubmit={handleSubmit}
-        className="bg-[#1a1a1a] p-8 rounded-lg shadow-lg w-full max-w-lg"
-      >
-        <h2 className="text-3xl font-bold mb-6 text-[#fc8019]">Send a Message</h2>
-
-        <input
-          type="text"
-          name="name"
-          placeholder="Your Name"
-          value={formData.name}
-          onChange={handleChange}
-          required
-          className="w-full p-3 mb-4 bg-black border border-gray-700 rounded"
-        />
-
-        <input
-          type="email"
-          name="email"
-          placeholder="Your Email"
-          value={formData.email}
-          onChange={handleChange}
-          required
-          className="w-full p-3 mb-4 bg-black border border-gray-700 rounded"
-        />
-
-        <textarea
-          name="message"
-          placeholder="Your Message"
-          value={formData.message}
-          onChange={handleChange}
-          required
-          rows="5"
-          className="w-full p-3 mb-4 bg-black border border-gray-700 rounded"
-        ></textarea>
-
-        <button
-          type="submit"
-          className="w-full bg-[#fc8019] text-black font-semibold py-3 rounded hover:bg-white transition"
-        >
-          {status === 'Sending...' ? 'Sending...' : 'Send Message'}
-        </button>
-
-        {status && status !== 'Sending...' && (
-          <p className={`text-center mt-4 text-sm ${status.includes('Success') ? 'text-green-500' : 'text-red-500'}`}>
-            {status}
+    <div className="min-h-screen bg-gradient-to-br from-black via-[#0f0f0f] to-black text-white p-6 flex justify-center items-center">
+      <div className="flex flex-col md:flex-row w-full max-w-6xl gap-12">
+        {/* Contact Info */}
+        <div className="flex-1">
+          <p className="text-xs sm:text-sm text-gray-500 mb-1 tracking-widest">________ CONTACT</p>
+          <h1 className="text-3xl sm:text-4xl md:text-4xl font-bold mb-3 animate-pulse">
+            CONTACT ME
+          </h1>
+          <p className="text-lg sm:text-xl md:text-2xl text-[#fc8019] mb-6">
+            Let's connect — I'm always excited to hear from you!
           </p>
-        )}
-      </form>
+          <div className="text-base sm:text-lg text-gray-400 space-y-2">
+            <p><span className="font-semibold text-white">Name:</span> Jayendra</p>
+            <p><span className="font-semibold text-white">Email:</span> jayendramalla26@gmail.com</p>
+            <p><span className="font-semibold text-white">Phone No:</span> 7842814826</p>
+          </div>
+        </div>
+
+        {/* Form Section */}
+        <form
+          onSubmit={handleSubmit}
+          className="w-full max-w-md bg-[#1a1a1a]/60 backdrop-blur-md px-6 sm:px-8 py-10 sm:py-12 rounded-2xl shadow-lg border border-[#fc8019]/20 transition-all duration-300"
+        >
+          <h2 className="text-3xl font-bold mb-8 text-center text-transparent bg-clip-text bg-gradient-to-r from-[#fc8019] to-[#ffb347]">
+            Send a Message
+          </h2>
+
+          <input
+            type="text"
+            name="name"
+            placeholder="Your Name"
+            value={formData.name}
+            onChange={handleChange}
+            required
+            className="w-full p-3 mb-5 bg-transparent border-b-2 border-gray-700 text-white placeholder-gray-500 focus:outline-none focus:border-[#fc8019] focus:shadow-md transition"
+          />
+
+          <input
+            type="email"
+            name="email"
+            placeholder="Your Email"
+            value={formData.email}
+            onChange={handleChange}
+            required
+            className="w-full p-3 mb-5 bg-transparent border-b-2 border-gray-700 text-white placeholder-gray-500 focus:outline-none focus:border-[#fc8019] focus:shadow-md transition"
+          />
+
+          <textarea
+            name="message"
+            placeholder="Your Message"
+            value={formData.message}
+            onChange={handleChange}
+            required
+            rows="5"
+            className="w-full p-3 mb-6 bg-transparent border border-gray-700 text-white placeholder-gray-500 rounded-md focus:outline-none focus:border-[#fc8019] focus:shadow-md transition"
+          ></textarea>
+
+          <button
+            type="submit"
+            className="w-full bg-[#fc8019] text-black font-bold py-3 rounded-md hover:bg-[#fff] hover:text-black transition duration-300 shadow-md"
+          >
+            {status === 'Sending...' ? 'Sending...' : 'Send Message'}
+          </button>
+
+          {status && status !== 'Sending...' && (
+            <p className={`text-center mt-4 text-sm ${status.includes('Success') ? 'text-green-500' : 'text-red-500'}`}>
+              {status}
+            </p>
+          )}
+        </form>
+      </div>
     </div>
   );
 }
