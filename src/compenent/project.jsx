@@ -54,7 +54,6 @@ export default function ProjectShowcase() {
       <section className="bg-black text-white py-10 px-4 sm:px-6 md:px-10 lg:px-20">
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10">
 
-          {/* Left: List with transparent background */}
           <div className="bg-white/5 backdrop-blur-md p-6 rounded-xl shadow-lg overflow-y-auto max-h-[80vh] pr-4 border border-gray-700">
             <h3 className="text-xl font-bold mb-6 text-[#fc8019]">Projects</h3>
             {projects.map((p, i) => (
@@ -86,7 +85,6 @@ export default function ProjectShowcase() {
             ))}
           </div>
 
-          {/* Right: Details more efficient */}
           <div className="space-y-6 bg-[#1a1a1a] p-6 rounded-xl shadow-lg border border-gray-700">
             <motion.img
               key={proj.image}

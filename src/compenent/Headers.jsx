@@ -3,6 +3,7 @@ import { FiAlignJustify } from "react-icons/fi";
 import { RxCross2 } from "react-icons/rx";
 import Home from './Home';
 import Project from './project';
+import Skills from './skills'; 
 import Education from './Education';
 import Contact from './Contact';
 import Footer from './footer';
@@ -27,6 +28,7 @@ export default function Headers() {
           <ul className="flex flex-col gap-2 text-base font-semibold text-white text-center">
             <li className="hover:text-[#fc8019]"><a href="#home" onClick={toggleMenu}>Home</a></li>
             <li className="hover:text-[#fc8019]"><a href="#projects" onClick={toggleMenu}>Projects</a></li>
+            <li className="hover:text-[#fc8019]"><a href="#skills" onClick={toggleMenu}>Skills</a></li>
             <li className="hover:text-[#fc8019]"><a href="#education" onClick={toggleMenu}>Education</a></li>
             <li className="hover:text-[#fc8019]"><a href="#contact" onClick={toggleMenu}>Contact</a></li>
           </ul>
@@ -58,6 +60,7 @@ export default function Headers() {
           <ul className="hidden md:flex gap-10 ml-auto text-[18px] font-semibold cursor-pointer">
             <li className="hover:text-[#fc8019]"><a href="#home">Home</a></li>
             <li className="hover:text-[#fc8019]"><a href="#projects">Projects</a></li>
+            <li className="hover:text-[#fc8019]"><a href="#skills">Skills</a></li>
             <li className="hover:text-[#fc8019]"><a href="#education">Education</a></li>
             <li className="hover:text-[#fc8019]"><a href="#contact">Contact</a></li>
           </ul>
@@ -69,12 +72,19 @@ export default function Headers() {
         <section id="home">
           <Home />
         </section>
+
         <section id="projects">
           <Project />
         </section>
+
+        <section id="skills">
+          <Skills />
+        </section>
+
         <section id="education">
           <Education />
         </section>
+
         <section id="contact">
           <Contact />
         </section>

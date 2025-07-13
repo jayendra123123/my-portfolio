@@ -1,9 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { FiMail, FiPhone, FiGithub } from 'react-icons/fi';
+import { FaArrowUp } from 'react-icons/fa';
 
 export default function Contact() {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
   const [status, setStatus] = useState('');
+  const [isVisible, setIsVisible] = useState(false);
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -21,6 +24,22 @@ export default function Contact() {
     }
   };
 
+  const toggleVisibility = () => {
+    if (window.scrollY > 200) {
+      setIsVisible(true);
+    } else {
+      setIsVisible(false);
+    }
+  };
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  useEffect(() => {
+    window.addEventListener('scroll', toggleVisibility);
+    return () => window.removeEventListener('scroll', toggleVisibility);
+  }, []);
   return (
     <div className="min-h-screen bg-gradient-to-br from-black via-[#0f0f0f] to-black text-white p-6 flex justify-center items-center">
       <div className="flex flex-col md:flex-row w-full max-w-6xl gap-12">
@@ -33,14 +52,32 @@ export default function Contact() {
           <p className="text-lg sm:text-xl md:text-2xl text-[#fc8019] mb-6">
             Let's connect — I'm always excited to hear from you!
           </p>
-          <div className="text-base sm:text-lg text-gray-400 space-y-2">
-            <p><span className="font-semibold text-white">Name:</span> Jayendra</p>
-            <p><span className="font-semibold text-white">Email:</span> jayendramalla26@gmail.com</p>
-            <p><span className="font-semibold text-white">Phone No:</span> 7842814826</p>
+          <div className="text-base sm:text-lg text-gray-400 space-y-4">
+            <div className="flex items-center gap-3">
+              <FiMail className="text-[#fc8019]" size={20} />
+              <a href="mailto:jayendramalla26@gmail.com" className="hover:text-white transition">
+                jayendramalla26@gmail.com
+              </a>
+            </div>
+            <div className="flex items-center gap-3">
+              <FiPhone className="text-[#fc8019]" size={20} />
+              <a href="tel:7842814826" className="hover:text-white transition">
+                7842814826
+              </a>
+            </div>
+            <div className="flex items-center gap-3">
+              <FiGithub className="text-[#fc8019]" size={20} />
+              <a
+                href="https://github.com/jayendramalla123123"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-white transition"
+              >
+                github.com
+              </a>
+            </div>
           </div>
         </div>
-
-        {/* Form Section */}
         <form
           onSubmit={handleSubmit}
           className="w-full max-w-md bg-[#1a1a1a]/60 backdrop-blur-md px-6 sm:px-8 py-10 sm:py-12 rounded-2xl shadow-lg border border-[#fc8019]/20 transition-all duration-300"
@@ -93,6 +130,15 @@ export default function Contact() {
           )}
         </form>
       </div>
+      {isVisible && (
+        <button
+          onClick={scrollToTop}
+          className="fixed bottom-8 right-8 p-4 bg-[#4169e1] hover:bg-blue-700 text-white rounded-full shadow-lg transition-all duration-300 animate-bounce z-50"
+          aria-label="Scroll to top"
+        >
+          <FaArrowUp size={20} />
+        </button>
+      )}
     </div>
   );
 }
