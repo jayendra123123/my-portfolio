@@ -5,16 +5,18 @@ import { ExternalLink, Github } from 'lucide-react';
 const projects = [
   {
     title: 'River CleanUp',
-    description: 'A full-stack app for organizing cleanup events with maps, email notifications, and event storage.',
+    description: 'River CleanUp now includes explanation about maps, email notifications, user login, and full-stack features.',
+    fullDescription: 'River CleanUp is a full-stack web application developed to streamline the process of organizing and managing river cleaning events. The platform allows users to register, log in, and participate in environmental cleanup activities by locating events near them via an interactive map. Built using MongoDB, Express, React, and Node.js, the app features real-time event creation, participation tracking, and automated email notifications to ensure participants stay informed. This project reflects my commitment to environmental causes while showcasing my skills in backend integration, user authentication, and responsive UI development.',
     live: 'https://clean-up-rw7s.onrender.com',
     code: 'https://github.com/jayendra123123/clean-up',
     tech: ['MongoDB', 'Express', 'React', 'Node.js'],
-    image: '/images/cleanup.png',
-    logo: 'https://sdmntprcentralus.oaiusercontent.com/files/00000000-7120-61f5-bb1a-e09107301d4e/raw?se=2025-07-12T20%3A04%3A54Z&sp=r&sv=2024-08-04&sr=b&scid=8fd1ba0b-d66b-50bc-98bd-da915ad9e029&skoid=5cab1ff4-c20d-41dc-babb-df0c2cc21dd4&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2025-07-12T00%3A50%3A59Z&ske=2025-07-13T00%3A50%3A59Z&sks=b&skv=2024-08-04&sig=xPWF6WfNubRQOmfre4itvtUChd80i8pq/TizU0JUgt0%3D'
+    image: 'river-cleanup.png',
+    logo: 'hi.png'
   },
   {
     title: 'Movie Review',
-    description: 'React app that lets users search, view, and rate movies using TMDB API.',
+    description: 'Movie Review highlights TMDB API usage and UI/UX goals.',
+    fullDescription: 'Movie Review is a React-based application that enables users to search for movies, view detailed information, and rate their favorites. It fetches live data from the TMDB API, displaying movie posters, release dates, genres, ratings, and overviews. The project emphasizes dynamic user interaction, responsive layout, and seamless API integration. Built with a minimalist UI and focused on performance, this project strengthened my frontend development skills and my ability to work with third-party APIs.',
     live: 'https://movie-review-omega-seven.vercel.app',
     code: 'https://github.com/jayendra123123/movie-review',
     tech: ['React', 'TMDB API', 'CSS'],
@@ -23,7 +25,8 @@ const projects = [
   },
   {
     title: 'Calculator',
-    description: 'Responsive calculator built using vanilla JavaScript, HTML, and CSS.',
+    description: 'Calculator emphasizes responsive design and JavaScript fundamentals.',
+    fullDescription: 'This project is a responsive, browser-based calculator developed using vanilla JavaScript, HTML, and CSS. It performs basic arithmetic operations including addition, subtraction, multiplication, and division. Designed with simplicity and clarity in mind, the calculator is optimized for both desktop and mobile devices. Creating this project helped me reinforce my core JavaScript skills and practice layout styling using pure CSS without external libraries.',
     live: 'https://jayendra123123.github.io/project1/',
     code: 'https://github.com/jayendra123123/project1',
     tech: ['JavaScript', 'HTML', 'CSS'],
@@ -32,7 +35,8 @@ const projects = [
   },
   {
     title: 'Notepad',
-    description: 'Minimal notepad app using localStorage. Users can create, edit, and delete notes.',
+    description: 'Notepad mentions localStorage and CRUD operations.',
+    fullDescription: 'Notepad is a lightweight note-taking app built with JavaScript, HTML, and CSS. It utilizes localStorage to allow users to write, edit, and delete notes, ensuring their content is preserved across sessions. The application features a clean and distraction-free interface, making it ideal for quick note capture. This project was a practical exploration of browser-based storage and CRUD operations, emphasizing functionality and user experience in a minimal footprint.',
     live: 'https://jayendra123123.github.io/Note-Pad/',
     code: 'https://github.com/jayendra123123/Note-Pad',
     tech: ['JavaScript', 'HTML', 'CSS', 'localStorage'],
@@ -97,7 +101,7 @@ export default function ProjectShowcase() {
               <img src={proj.logo} alt="Logo" className="w-10 h-10 object-contain bg-white rounded-full p-1 border border-[#fc8019]" />
               <h2 className="text-2xl font-bold text-[#fc8019]">{proj.title}</h2>
             </div>
-            <p className="text-gray-300 mb-4 text-sm leading-relaxed">{proj.description}</p>
+            <p className="text-gray-300 mb-4 text-sm leading-relaxed">{proj.fullDescription}</p>
             <div className="flex flex-wrap gap-2 mb-4">
               {proj.tech.map((tech, i) => (
                 <span key={i} className="bg-[#2e2e2e] text-white text-xs px-3 py-1 rounded-full">

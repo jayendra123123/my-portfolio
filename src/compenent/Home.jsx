@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { motion } from "framer-motion";
 
 export default function Home() {
@@ -67,6 +67,7 @@ export default function Home() {
               Solving real-world problems with practical innovation and a passion for technology.
             </motion.p>
 
+            {/* Social Links */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -114,30 +115,29 @@ export default function Home() {
               </a>
             </motion.div>
 
+            {/* Resume Buttons */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 1.7 }}
               className="flex flex-wrap gap-3 mt-5"
             >
-              <button
-                onClick={() => {
-                  const link = document.createElement("a");
-                  link.href = "public/resume_pdf(2).pdf";
-                  link.download = "resume_pdf(2).pdf";
-                  link.click();
-                }}
+              <a
+                href="/resume_pdf.pdf"
+                download
                 className="bg-gray-800 text-white px-4 py-2 text-sm rounded-md hover:bg-gray-700 transition"
               >
                 Download Resume
-              </button>
+              </a>
 
-              <button
-                onClick={() => window.open("public/resume_pdf(2).pdf", "_blank")}
+              <a
+                href="/resume_pdf.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="bg-gray-800 text-white px-4 py-2 text-sm rounded-md hover:bg-gray-700 transition"
               >
                 View Resume
-              </button>
+              </a>
             </motion.div>
           </div>
         </div>
